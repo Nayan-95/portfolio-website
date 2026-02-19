@@ -1,0 +1,50 @@
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: #00f5ff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transition: transform 0.05s linear, width 0.25s, height 0.25s, background 0.25s;
+    box-shadow: 0 0 8px #00f5ff, 0 0 24px rgba(0, 245, 255, 0.5);
+    will-change: transform;
+}
+
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid rgba(0, 245, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    will-change: transform;
+    transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.cursor-dot.hovered {
+    width: 12px;
+    height: 12px;
+    background: #b16cff;
+    box-shadow: 0 0 12px #b16cff, 0 0 32px rgba(177, 108, 255, 0.5);
+}
+
+.cursor-ring.hovered {
+    width: 56px;
+    height: 56px;
+    border-color: rgba(177, 108, 255, 0.5);
+    background: rgba(177, 108, 255, 0.06);
+}
+
+@media (max-width: 768px) {
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
+}

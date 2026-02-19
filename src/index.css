@@ -1,0 +1,247 @@
+/* ====================================================
+   GLOBAL CSS – Portfolio Website
+   Dark neon theme: cyan #00f5ff + purple #b16cff
+   Responsive: ≤1024px tablet, ≤768px mobile, ≤480px small phone
+   ==================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --clr-bg: #0a0a0f;
+  --clr-bg-2: #0f0f1a;
+  --clr-surface: #13131f;
+  --clr-surface-2: #1a1a2e;
+  --clr-border: rgba(255, 255, 255, 0.08);
+
+  --clr-cyan: #00f5ff;
+  --clr-cyan-dim: rgba(0, 245, 255, 0.15);
+  --clr-cyan-glow: rgba(0, 245, 255, 0.35);
+  --clr-purple: #b16cff;
+  --clr-purple-dim: rgba(177, 108, 255, 0.15);
+  --clr-purple-glow: rgba(177, 108, 255, 0.35);
+  --clr-pink: #ff6cdf;
+
+  --clr-text: #e8e8f0;
+  --clr-text-muted: #8b8ba7;
+  --clr-text-dim: #5a5a72;
+
+  /* Fonts */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Spacing — fluid with clamp */
+  --section-pad: clamp(60px, 8vw, 140px);
+  --container: 1200px;
+  --gap-md: clamp(1.25rem, 3vw, 2.5rem);
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-cyan-glow);
+  border-radius: 99px;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--clr-cyan-dim);
+  color: var(--clr-cyan);
+}
+
+/* ── Custom cursor ── */
+body * {
+  cursor: none !important;
+}
+
+/* ── Container ── */
+.container {
+  width: min(var(--container), 100% - 2rem);
+  margin-inline: auto;
+}
+
+/* ── Section ── */
+.section {
+  padding-block: var(--section-pad);
+}
+
+/* ── Typography scale ── */
+.section-tag {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-cyan);
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--clr-text);
+  margin-bottom: 1rem;
+}
+
+.section-title span {
+  background: linear-gradient(135deg, var(--clr-cyan), var(--clr-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  color: var(--clr-text-muted);
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  line-height: 1.7;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+/* ── Utilities ── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--clr-cyan), var(--clr-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass card ── */
+.glass {
+  background: rgba(19, 19, 31, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--clr-border);
+  border-radius: 16px;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: clamp(0.65rem, 2vw, 0.85rem) clamp(1.25rem, 3vw, 2rem);
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(0.82rem, 2vw, 0.95rem);
+  text-decoration: none;
+  border: none;
+  transition: all 0.3s var(--ease-smooth);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--clr-cyan), var(--clr-purple));
+  color: var(--clr-bg);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--clr-cyan-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--clr-cyan);
+  border: 1px solid var(--clr-cyan);
+  box-shadow: 0 0 12px var(--clr-cyan-dim);
+}
+
+.btn-outline:hover {
+  background: var(--clr-cyan-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--clr-cyan-glow);
+}
+
+/* ── Noise overlay ── */
+.noise::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ── Global Responsive ── */
+@media (max-width: 768px) {
+
+  /* Restore native cursor on touch devices */
+  body {
+    cursor: auto;
+  }
+
+  body * {
+    cursor: auto !important;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-pad: clamp(48px, 10vw, 72px);
+  }
+
+  .container {
+    width: min(var(--container), 100% - 1.25rem);
+  }
+}

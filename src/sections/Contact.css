@@ -1,0 +1,251 @@
+.contact-section {
+    background: var(--clr-bg);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+}
+
+/* ── Info Column ── */
+.contact-availability {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.avail-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 10px #22c55e88;
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px #22c55e88;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #22c55edd;
+    }
+}
+
+.avail-status {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #22c55e;
+}
+
+.avail-sub {
+    font-size: 0.76rem;
+    color: var(--clr-text-muted);
+    margin-top: 0.1rem;
+}
+
+.contact-bio {
+    color: var(--clr-text-muted);
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    line-height: 1.8;
+    margin-bottom: 1.1rem;
+}
+
+.contact-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--clr-text-muted);
+    font-size: clamp(0.8rem, 1.8vw, 0.88rem);
+    margin-bottom: 1.75rem;
+}
+
+/* Socials */
+.socials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.social-row {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.8rem 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s var(--ease-smooth);
+}
+
+.social-row:hover {
+    border-color: var(--clr-cyan-glow);
+    transform: translateX(6px);
+    box-shadow: 0 6px 24px rgba(0, 245, 255, 0.1);
+}
+
+.social-icon {
+    font-size: 1.1rem;
+    color: var(--clr-cyan);
+    flex-shrink: 0;
+}
+
+.social-label {
+    display: block;
+    font-weight: 700;
+    font-size: clamp(0.82rem, 2vw, 0.9rem);
+    color: var(--clr-text);
+}
+
+.social-handle {
+    display: block;
+    font-size: clamp(0.68rem, 1.5vw, 0.78rem);
+    color: var(--clr-text-muted);
+    font-family: var(--font-mono);
+    word-break: break-all;
+}
+
+.social-arrow {
+    margin-left: auto;
+    color: var(--clr-text-dim);
+    font-size: 1rem;
+    transition: color 0.25s, transform 0.25s;
+}
+
+.social-row:hover .social-arrow {
+    color: var(--clr-cyan);
+    transform: translate(2px, -2px);
+}
+
+/* ── Form ── */
+.contact-form {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Floating label inputs */
+.form-group {
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    background: var(--clr-bg);
+    border: 1px solid var(--clr-border);
+    border-radius: 10px;
+    padding: 1.05rem 0.9rem 0.55rem;
+    color: var(--clr-text);
+    font-family: var(--font-body);
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    transition: border-color 0.25s, box-shadow 0.25s;
+    resize: none;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--clr-cyan);
+    box-shadow: 0 0 0 3px var(--clr-cyan-dim);
+}
+
+.form-label {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--clr-text-dim);
+    font-size: 0.88rem;
+    pointer-events: none;
+    transition: all 0.2s var(--ease-smooth);
+}
+
+textarea~.form-label {
+    top: 1.05rem;
+    transform: none;
+}
+
+.form-input:focus~.form-label,
+.form-input:not(:placeholder-shown)~.form-label {
+    top: 0.35rem;
+    font-size: 0.64rem;
+    color: var(--clr-cyan);
+    transform: translateY(0);
+    letter-spacing: 0.06em;
+}
+
+textarea:focus~.form-label,
+textarea:not(:placeholder-shown)~.form-label {
+    top: 0.35rem;
+    font-size: 0.64rem;
+    color: var(--clr-cyan);
+    letter-spacing: 0.06em;
+}
+
+.send-btn {
+    align-self: flex-start;
+}
+
+.btn-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-top-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    display: inline-block;
+    margin-left: 0.4rem;
+}
+
+/* ──────── RESPONSIVE ──────── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .social-row:hover {
+        transform: none;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .contact-grid {
+        gap: 2rem;
+    }
+
+    .socials-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .socials-list {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 1.25rem;
+    }
+
+    .form-input {
+        font-size: 0.88rem;
+    }
+
+    .send-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
