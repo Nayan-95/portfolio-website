@@ -80,7 +80,7 @@ export default function ChatAssistant() {
             : PROFILE_DATA
 
         try {
-            const response = await fetch(import.meta.env.VITE_CHAT_API_URL, {
+            const response = await fetch("https://portfolio-chatbot-backend-lk4h.onrender.com/chat", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
