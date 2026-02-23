@@ -9,6 +9,7 @@ import Projects from './sections/Projects'
 import Experience from './sections/Experience'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
+import ChatAssistant from './components/ChatAssistant'
 
 export default function App() {
     // Lenis smooth scroll
@@ -42,6 +43,7 @@ export default function App() {
                 <Experience />
                 <Contact />
             </main>
+            <ChatAssistant />
             <Footer />
         </div>
     )
